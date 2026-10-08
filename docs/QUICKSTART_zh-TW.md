@@ -29,3 +29,22 @@ python -m spectral_public.cli controlled-output examples/p3_corpus.json examples
 ```
 
 P3 仍然只處理已給定的數值區間。LSH 可能遺漏候選，因此必須與完整掃描作實際比較；通過篩選的數值不代表推論為真。輸出的文字是確定性模板，不是 AI 生成內容，也不是原始文件的無損還原。詳細規格見 [`P3_RETRIEVAL_AND_OUTPUT.md`](P3_RETRIEVAL_AND_OUTPUT.md)。
+
+## P4：獨立 JavaScript 版本與一致性測試
+
+不需要安裝 Python 即可單獨運作的 Node.js 解譯器（需要 Node.js 20 以上）：
+
+```bash
+node js/cli.mjs run examples/hello.isl
+node js/cli.mjs retrieve examples/p3_corpus.json examples/p3_query.json
+node js/cli.mjs controlled-output examples/p3_corpus.json examples/p3_query.json evidence
+node --test js/tests/p4.test.mjs
+```
+
+若要和 Python 參考實作進行相容性比較，才需要兩種語言同時存在：
+
+```bash
+python scripts/p4_conformance.py
+```
+
+本階段只獨立實作 P1 語言與 P3 精確掃描／受控輸出；不代表外部第三方已驗證，也不代表通用語義理解、模型訓練或 ISQL 內部機制已公開。更多說明見 `docs/P4_INDEPENDENT_CONFORMANCE.md`。

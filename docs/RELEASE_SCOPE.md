@@ -22,3 +22,7 @@
 - Real language generation, objective relevance metrics, complete recall from LSH or byte-exact restoration of original documents.
 
 The MIT license applies only to source and documentation distributed in the ISL repository. No external or non-public technology is imported. User-submitted model adapters and datasets have their own licensing and privacy responsibilities.
+
+## P4 public addition
+
+An independent Node.js implementation is released under the same MIT License, but only for P1 `.isl 0.1`, P3 exhaustive numerical retrieval and bounded deterministic P3 reporting. P2 learned/model-adapter internals and P3 approximate LSH are **not** cross-runtime certified. Cross-language comparison is not external scientific validation, third-party audit or a release of any separate private project.

@@ -2,9 +2,12 @@ name: ISL public verification
 on:
   push:
   pull_request:
+
 jobs:
-  test:
+  python:
+    name: Python reference (${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       matrix:
         python-version: ["3.10", "3.12"]
@@ -17,13 +20,42 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: P1 language example
         run: python -m spectral_public.cli run examples/hello.isl
-      - name: P2 adapter binding and diagnostics
+      - name: P2 model-neutral adapter checks
         run: |
           python -m spectral_public.cli adapter-check examples/p2_requests.json examples/p2_predictions.json
           python -m spectral_public.cli evaluate examples/p2_requests.json examples/p2_predictions.json examples/p2_heldout.json
-      - name: P3 scoped retrieval and controlled output
+      - name: P3 exact retrieval and controlled output
         run: |
           python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json
-          python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json --index lsh
-          python -m spectral_public.cli retrieval-audit examples/p3_corpus.json examples/p3_query.json
-          python -m spectral_public.cli controlled-output examples/p3_corpus.json examples/p3_query.json --style compact
+          python -m spectral_public.cli controlled-output examples/p3_corpus.json examples/p3_query.json --style evidence
+
+  javascript:
+    name: Independent Node.js runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Node.js independent tests
+        run: node --test js/tests/p4.test.mjs
+      - name: Node.js standalone source and retrieval
+        run: |
+          node js/cli.mjs run examples/hello.isl
+          node js/cli.mjs retrieve examples/p3_corpus.json examples/p3_query.json
+
+  cross-runtime:
+    name: Python↔Node conformance
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Positive, invalid and deterministic cross-language comparison
+        run: python scripts/p4_conformance.py

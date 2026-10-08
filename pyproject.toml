@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "infinite-spectrum-language"
-version = "0.3.0"
+version = "0.4.0"
 description = "Bounded, model-neutral spectrum language with scoped retrieval and controlled output"
 requires-python = ">=3.10"
 authors = [{name = "Neo.K / EveMissLab"}]

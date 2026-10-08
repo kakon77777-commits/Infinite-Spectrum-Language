@@ -1,0 +1,31 @@
+{
+  "profile": "isl-p4-conformance/0.4",
+  "status": "public bounded cross-runtime candidate (not externally audited)",
+  "covered_profiles": [
+    "isl-language/0.1",
+    "isl-retrieval-query/0.3",
+    "isl-controlled-output/0.3"
+  ],
+  "python_reference": "spectral_public",
+  "independent_node_implementation": "js/isl_public.mjs",
+  "golden_files_sha256": {
+    "conformance/positive/hello.isl": "104ba88c276e4d7b493d2757cf52b63fdcf5209b3f7684834171abd6b07d3835",
+    "conformance/positive/hello.expected.json": "fd3785aab88a8d48f833e45d40cfa3aa870add3e13ac24cfabf472f720b24932",
+    "conformance/positive/disjoint.isl": "7e54ed180452e06dfce55040eb0d36aaa418190dc69a2bcd355580fba959fd61",
+    "conformance/positive/disjoint.expected.json": "8b72b5b8381cf987ec719af6cee495e3944af1089516ce5d21f4f1621af4438b",
+    "examples/p3_query.json": "4faab636fa6f8cbe74e70d0787bb13835ba94c92a3f4081841010a861508fb8f",
+    "examples/p3_corpus.json": "cf812f0a5d87474a8c2a95a28afe074425c14ce844fdf2a11642837c50711e84",
+    "conformance/p4/p3-exact.expected.json": "e2baaab4f42c700ee6d987017258aa5868d7961dc0c21c6421c1daecfdf9aac2",
+    "conformance/p4/p3-evidence.expected.json": "fd6a43403d5032fd02662137a9377e6295ea2623038dbc53caafdde475f47585",
+    "conformance/p4/p3-compact.expected.json": "91267d822acef15d60080739dcee4d402b01fdbd68e09dd9f0ffb9de7b83528f"
+  },
+  "number_comparison": {
+    "rel_tol": 2e-12,
+    "abs_tol": 2e-12
+  },
+  "unsupported_in_node": [
+    "P2 model adapter",
+    "P3 approximate LSH"
+  ],
+  "external_audit_completed": false
+}

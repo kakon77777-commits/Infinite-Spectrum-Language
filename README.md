@@ -1,6 +1,6 @@
 # ISL — Infinite Spectrum Language
 
-**Public Research Preview P3 · v0.3.0**  
+**Public Research Preview P4 · v0.4.0**  
 **無限光譜量化語言 · 對外研究原型**  
 **Creator:** Neo.K · EveMissLab  
 **Conceptual source:** *無限光譜量化語言：從語義向量到可計算語言系統* (2026-03-10)  
@@ -109,6 +109,22 @@ Operations: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic**), `f
 - [`tests/`](tests/) — zero-network unit tests.
 - [`docs/RELEASE_SCOPE.md`](docs/RELEASE_SCOPE.md) — scope and non-goals.
 - [`ROADMAP.md`](ROADMAP.md) — planned experiments.
+
+## P4 — second independent-language implementation (Node.js)
+
+P4 adds a standalone MIT-licensed **JavaScript / Node.js implementation** of the frozen P1 `.isl 0.1` interpreter, P3 **exhaustive** numerical retrieval and both P3 deterministic output templates. This runtime does not import or invoke Python. It does not reimplement P2 adapters or the optional approximate P3 LSH index.
+
+```bash
+node js/cli.mjs run examples/hello.isl
+node js/cli.mjs retrieve examples/p3_corpus.json examples/p3_query.json
+node js/cli.mjs controlled-output examples/p3_corpus.json examples/p3_query.json compact
+node --test js/tests/p4.test.mjs
+python scripts/p4_conformance.py
+```
+
+The differential harness compares **accept/reject behavior, full JSON shape, exact IDs, ordering, provenance and text hashes** against Python; floating-point values use a documented tolerance. This is internal **cross-language conformance**, not an external third-party audit or a claim of universal semantic correctness.
+
+Read [P4 cross-language conformance](docs/P4_INDEPENDENT_CONFORMANCE.md), [external implementer guide](docs/P4_EXTERNAL_IMPLEMENTER_GUIDE.md), and [independent JS runtime](js/README.md). Public golden P3 exact/output fixtures live in `conformance/p4/`.
 
 ## License
 

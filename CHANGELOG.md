@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.4.0 — P4 independent implementation and cross-runtime conformance (2026-10-08)
+
+- Added an independent MIT-licensed Node.js implementation of the original `.isl 0.1` language interpreter.
+- Added independent P3 **exact** retrieval and bounded `compact`/`evidence` templates; P2 and approximate LSH remain Python-only.
+- Added public frozen exact retrieval/output JSON vectors, JS unit tests and Python/Node differential harness (including valid, invalid and context-scoped synthetic cases).
+- Updated GitHub Actions to run Python, Node.js and cross-runtime checks; documented float tolerance and verification limits.
+- Preserved P1 source grammar and P2/P3 JSON contracts without new nonpublic dependencies.
+
 ## 0.3.0 (2026-10-08) — P3 Scoped Retrieval and Controlled Output
 
 - Added context-/axis-scoped exact numerical retrieval and replaceable `CandidateProvider` interface.

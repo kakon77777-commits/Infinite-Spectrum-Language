@@ -34,9 +34,15 @@
 - [ ] Empirical LSH trade-off benchmarks on externally annotated data.
 - [ ] Learned constrained generation with separate factuality/recovery evaluation.
 
-## P4 — external ecosystem validation (future)
+## P4 — independent Node.js implementation and cross-language checks (v0.4.0)
 
-- [ ] Independent implementation, measured conformance, community examples and extensions.
-- [ ] Standardize only behaviors backed by real evidence.
+- [x] Second host-language implementation of P1 `.isl 0.1`, independent of Python runtime.
+- [x] Independent P3 exact-scan retrieval and deterministic controlled output.
+- [x] Frozen public P3 golden fixtures; language and retrieval differential tests with deterministic synthetic cases.
+- [x] GitHub CI for Python 3.10/3.12, Node.js, and mandatory cross-language conformance.
+- [x] External implementer instructions, known limitations and rejection-path coverage.
+- [ ] Independent **third-party** implementation/audit outside the project.
+- [ ] External annotated datasets, reproducible semantic/latency benchmarks and diverse community-contributed fixtures.
+- [ ] Only standardize further behavior after independent evidence; preserve versioned boundary on incompatible changes.
 
 Passing unit tests verifies code contracts, not objectivity of semantic dimensions, probability calibration or general language understanding.

@@ -1,0 +1,39 @@
+{
+  "profile": "isl-external-conformance/0.5",
+  "date": "2026-10-08",
+  "status": "public external-audit-ready candidate; no independent third-party approval",
+  "profiles": {
+    "p1": "isl-language/0.1",
+    "p3": "isl-retrieval-results/0.3",
+    "controlled": "isl-controlled-output/0.3"
+  },
+  "comparison": {
+    "numerical_abs_tolerance": 2e-12,
+    "numerical_rel_tolerance": 2e-12,
+    "other_values": "exact type/value, object key set, array order"
+  },
+  "rejection_exit_code": 2,
+  "sha256": {
+    "conformance/positive/disjoint.isl": "7e54ed180452e06dfce55040eb0d36aaa418190dc69a2bcd355580fba959fd61",
+    "conformance/positive/hello.isl": "104ba88c276e4d7b493d2757cf52b63fdcf5209b3f7684834171abd6b07d3835",
+    "conformance/positive/disjoint.expected.json": "8b72b5b8381cf987ec719af6cee495e3944af1089516ce5d21f4f1621af4438b",
+    "conformance/positive/hello.expected.json": "fd3785aab88a8d48f833e45d40cfa3aa870add3e13ac24cfabf472f720b24932",
+    "conformance/invalid/bad-interval.isl": "72c5a591df287b1601bb1f5b0a6b12b7896564987ca201e2fef2b35aa0cd2e5c",
+    "conformance/invalid/cross-axis.isl": "e3aa144a4e9c5391340ac2f036e022d3a332480328f9b304943357d6bed12962",
+    "conformance/invalid/missing-provenance.isl": "b3fa69c7e1aadc489bc4ed506e0bc9cc464f20075ac57a3639f3bc2ba2183fbc",
+    "conformance/invalid/no-such-operator.isl": "222f82694d34b614a7ac5bcdfe202cce7754bf54614d0edb181846a5ad169d16",
+    "conformance/invalid/unknown-axis.isl": "1d3c39b95738030f18962fc3eba9ea2a44170ca060f7d31551916540bf9ba31b",
+    "examples/p3_corpus.json": "cf812f0a5d87474a8c2a95a28afe074425c14ce844fdf2a11642837c50711e84",
+    "examples/p3_query.json": "4faab636fa6f8cbe74e70d0787bb13835ba94c92a3f4081841010a861508fb8f",
+    "conformance/p4/p3-exact.expected.json": "e2baaab4f42c700ee6d987017258aa5868d7961dc0c21c6421c1daecfdf9aac2",
+    "conformance/p4/p3-evidence.expected.json": "fd6a43403d5032fd02662137a9377e6295ea2623038dbc53caafdde475f47585",
+    "conformance/p4/p3-compact.expected.json": "91267d822acef15d60080739dcee4d402b01fdbd68e09dd9f0ffb9de7b83528f"
+  },
+  "independent_external_audit_completed": false,
+  "normative_sources": [
+    "spec/ISL_P1_LANGUAGE_SPEC.md",
+    "spec/ISL_P3_JSON_PROFILES.md",
+    "docs/P3_RETRIEVAL_AND_OUTPUT.md"
+  ],
+  "synthetic_fixture_notice": "No independently annotated semantic truth, trained model, or probability calibration."
+}

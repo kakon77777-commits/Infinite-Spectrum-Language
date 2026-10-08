@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.5.0 — P5 external conformance kit (2026-10-08)
+
+- Added independent black-box CLI gate for third-party ISL implementations, built entirely from Python standard-library code.
+- Pinned public golden fixtures by digest; added seeded synthetic P1/P3 numerical oracles and fail-closed negative cases.
+- Enforced strict UTF-8 input rejection in Node CLI, recorded conformance profiles and a submission template.
+- Added CI gate validation for both bundled runtimes, along with contributor-facing instructions.
+- No changes to `.isl 0.1`, P2 JSON, P3 0.3 profiles, license, or internal-system boundary.
+- External third-party audit remains outstanding; project-maintained runtimes do not count as outside proof.
+
+
 ## v0.4.0 — P4 independent implementation and cross-runtime conformance (2026-10-08)
 
 - Added an independent MIT-licensed Node.js implementation of the original `.isl 0.1` language interpreter.

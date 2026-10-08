@@ -1,0 +1,13 @@
+{
+  "profile": "isl-external-submission/0.5",
+  "implementation": "YOUR_NAME",
+  "language": "YOUR_LANGUAGE",
+  "source_commit": "YOUR_COMMIT_SHA",
+  "public_repo": "YOUR_REPO_URL",
+  "supported_profiles": ["isl-language/0.1", "isl-retrieval-results/0.3", "isl-controlled-output/0.3"],
+  "build_instructions": "INSTRUCTIONS_FOR_REPRODUCTION",
+  "gate_report_sha256": "SHA256_OF_GATE_RESULT_JSON",
+  "reviewed_independence": false,
+  "auditor_and_date": null,
+  "notes": "Synthetic bounded conformance, not empirical semantic understanding. Do not include private inputs or secrets."
+}

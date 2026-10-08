@@ -1,6 +1,6 @@
 # ISL — Infinite Spectrum Language
 
-**Public Research Preview P4 · v0.4.0**  
+**Public Research Preview P5 · v0.5.0**  
 **無限光譜量化語言 · 對外研究原型**  
 **Creator:** Neo.K · EveMissLab  
 **Conceptual source:** *無限光譜量化語言：從語義向量到可計算語言系統* (2026-03-10)  
@@ -56,6 +56,24 @@ python -m spectral_public.cli p2-corpus examples/p2_requests.json examples/p2_pr
 
 See [P3 retrieval and controlled-output contracts](docs/P3_RETRIEVAL_AND_OUTPUT.md) and [P3 experimental JSON profiles](spec/ISL_P3_JSON_PROFILES.md). P3 examples use **invented numeric annotations**; test pass rates and LSH recall do not demonstrate natural-language reasoning accuracy. The P3 reference implementation is offline and uses only Python's standard library.
 
+## P5 — external conformance kit (portable, black-box)
+
+P5 adds an **external-implementation verification gate**. It can test a separate executable in any language using explicit `run`, `retrieve`, and `controlled-output` command templates. It does **not** import the supplied runtime implementations when constructing expected results. Static frozen vectors and independently computed seeded synthetic cases verify public P1/P3 contracts and reject behavior.
+
+```bash
+python scripts/p5_external_gate.py \
+  --run-cmd 'python -m spectral_public.cli run {source}' \
+  --retrieve-cmd 'python -m spectral_public.cli retrieve {corpus} {query}' \
+  --controlled-cmd 'python -m spectral_public.cli controlled-output {corpus} {query} --style {style}'
+
+python scripts/p5_external_gate.py \
+  --run-cmd 'node js/cli.mjs run {source}' \
+  --retrieve-cmd 'node js/cli.mjs retrieve {corpus} {query}' \
+  --controlled-cmd 'node js/cli.mjs controlled-output {corpus} {query} {style}'
+```
+
+See [external implementer's P5 guide](docs/P5_EXTERNAL_CONFORMANCE_KIT.md). **The project's own Python/Node success is NOT an independent external audit.** P2 model learning, P3 approximate LSH and semantic truth remain separate research questions.
+
 ## Your first ISL program
 
 ```isl
@@ -109,6 +127,8 @@ Operations: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic**), `f
 - [`tests/`](tests/) — zero-network unit tests.
 - [`docs/RELEASE_SCOPE.md`](docs/RELEASE_SCOPE.md) — scope and non-goals.
 - [`ROADMAP.md`](ROADMAP.md) — planned experiments.
+- [`docs/P5_EXTERNAL_CONFORMANCE_KIT.md`](docs/P5_EXTERNAL_CONFORMANCE_KIT.md) — independent executable conformance boundary and limitations.
+- [`conformance/p5/MANIFEST.json`](conformance/p5/MANIFEST.json) — frozen public fixture digests and runner version.
 
 ## P4 — second independent-language implementation (Node.js)
 

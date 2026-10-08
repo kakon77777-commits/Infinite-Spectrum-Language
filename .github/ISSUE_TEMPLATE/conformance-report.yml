@@ -1,0 +1,35 @@
+name: ISL conformance divergence or external reproduction
+description: Report a public, reproducible conformance mismatch; no sensitive source material.
+title: "[Conformance] "
+body:
+  - type: markdown
+    attributes:
+      value: "Include synthetic/redistributable test data only. Do not upload private research material, keys, or personal user content. External third-party claims require independent review."
+  - type: input
+    id: implementation
+    attributes:
+      label: Implementation and language
+      placeholder: "Example: Independent Rust runtime, commit abc..."
+    validations:
+      required: true
+  - type: input
+    id: profile
+    attributes:
+      label: ISL profile
+      placeholder: "isl-language/0.1 or isl-retrieval-results/0.3"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal public reproduction
+      description: "Input, expected/actual output, exact command, versions, and the synthetic fixture digest."
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Expected interpretation and compatibility effect
+      description: "Which spec text governs this behavior? Does your proposed fix break compatibility?"
+    validations:
+      required: false

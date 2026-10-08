@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: "22"
       - name: Node.js independent tests
-        run: node --test js/tests/p4.test.mjs
+        run: node --test js/tests/*.test.mjs
       - name: Node.js standalone source and retrieval
         run: |
           node js/cli.mjs run examples/hello.isl
@@ -59,3 +59,40 @@ jobs:
           node-version: "22"
       - name: Positive, invalid and deterministic cross-language comparison
         run: python scripts/p4_conformance.py
+
+  external-gate-python:
+    name: P5 external-CLI gate — Python
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify pinned fixtures and independent synthetic oracle
+        run: |
+          python scripts/p5_external_gate.py \
+            --run-cmd 'python -m spectral_public.cli run {source}' \
+            --retrieve-cmd 'python -m spectral_public.cli retrieve {corpus} {query}' \
+            --controlled-cmd 'python -m spectral_public.cli controlled-output {corpus} {query} --style {style}' \
+            --report "$RUNNER_TEMP/p5-python-report.json"
+
+  external-gate-node:
+    name: P5 external-CLI gate — Node.js
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify pinned fixtures and independent synthetic oracle
+        run: |
+          python scripts/p5_external_gate.py \
+            --run-cmd 'node js/cli.mjs run {source}' \
+            --retrieve-cmd 'node js/cli.mjs retrieve {corpus} {query}' \
+            --controlled-cmd 'node js/cli.mjs controlled-output {corpus} {query} {style}' \
+            --report "$RUNNER_TEMP/p5-node-report.json"

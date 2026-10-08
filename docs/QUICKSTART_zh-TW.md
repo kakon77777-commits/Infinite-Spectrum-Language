@@ -48,3 +48,11 @@ python scripts/p4_conformance.py
 ```
 
 本階段只獨立實作 P1 語言與 P3 精確掃描／受控輸出；不代表外部第三方已驗證，也不代表通用語義理解、模型訓練或 ISQL 內部機制已公開。更多說明見 `docs/P4_INDEPENDENT_CONFORMANCE.md`。
+
+## P5：外部實作相容性測試
+
+P5 的新增重點是讓其他開發者可以從公開規格自行實作，再使用 `scripts/p5_external_gate.py` 進行黑箱測試。驗證器不需要引入 ISL Python 或 Node.js 程式碼來產生預期答案；它使用固定 Golden Files 與自行依規格運算的合成測試。
+
+目前 GitHub CI 執行的是**專案自己維護的兩個版本**，因此只能稱為專案內的跨實作與驗證器測試，不能冒稱已有外部第三方審計。詳細使用與提交方式見 `docs/P5_EXTERNAL_CONFORMANCE_KIT.md`。
+
+這是獨立對外公開版；MIT 授權僅適用於本倉庫內容，不涉及其他未公開研究系統。

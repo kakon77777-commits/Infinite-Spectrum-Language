@@ -45,4 +45,14 @@
 - [ ] External annotated datasets, reproducible semantic/latency benchmarks and diverse community-contributed fixtures.
 - [ ] Only standardize further behavior after independent evidence; preserve versioned boundary on incompatible changes.
 
+## P5 — external conformance tooling (v0.5.0)
+
+- [x] Published a reference-independent **black-box** gate that launches user-supplied CLI commands without importing internal runtime code.
+- [x] Frozen SHA-256 digests of existing public golden vectors and bounded profile-specific JSON comparison.
+- [x] Deterministic generated P1/P3 test cases with a standalone formula-based numerical oracle (not a reference runtime oracle).
+- [x] Strict rejection of malformed JSON/UTF-8 with reproducible negative cases.
+- [x] Runtime-neutral submission template, external implementer guide and public divergence issue template.
+- [ ] **Real third-party** authorship and independently reviewed execution receipts.
+- [ ] Validation on externally annotated data with measured cross-implementation behavior beyond bounded synthetic fixtures.
+
 Passing unit tests verifies code contracts, not objectivity of semantic dimensions, probability calibration or general language understanding.

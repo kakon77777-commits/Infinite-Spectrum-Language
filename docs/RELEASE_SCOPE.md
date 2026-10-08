@@ -1,22 +1,20 @@
-# ISL P1 Public Release Scope
+# ISL Public Release Scope — P2
 
-**Status:** Public research preview, intentionally a basic independently usable language kernel.
+**Status:** Public, independently usable numerical-spectrum research prototype. **License:** MIT.
 
 ## Included and testable
 
-- Pure-Python bounded interval semantics and local records.
-- A versioned `.isl` language syntax with five numerical operations.
-- Clear error behavior, UTF-8 examples, tests, and predictable JSON results.
-- Offline execution with no network calls or hidden services.
+- A versioned `.isl 0.1` language with five numerical operators and deterministic interpreter.
+- Strict interval / axis / context / provenance / UTF-8 validation and repeatable results.
+- Offline P2 external encoder interchange, exact request/context fingerprint binding, source/model version metadata and abstention.
+- Point-label evaluation with context-group metrics; fully synthetic demonstration records and negative controls.
+- Unit/conformance tests and GitHub CI; no hard external model dependency.
 
 ## Not claimed
 
-- Automatic understanding of arbitrary natural language or learned meaning.
-- Learned semantic atoms, optimized high-dimensional lookup, or neural generation.
-- Formal soundness of statistical inference or universal semantic equivalence.
-- A native machine format, general-purpose compiler, or production security certification.
-- Independent compatibility with any other language, internal system, or runtime.
+- Trained natural-language understanding, cross-model universal semantics or learned semantic atoms.
+- Automatic discovery of an objective semantic metric, logical entailment or theorem proving.
+- Independently annotated evidence, population-level generalization, calibrated confidence or reliable shift robustness.
+- Native machine state, arbitrary model execution, a production security audit or compatibility with other languages.
 
-## Safety and licensing
-
-Only standalone public-candidate files were developed here. No confidential source, proprietary internal code, secret data, or third-party software artifacts are included. Public visibility does not itself grant software reuse rights; licensing is pending owner decision.
+The MIT license applies only to source and documentation distributed in the ISL repository. No external or non-public technology is imported. User-submitted model adapters and datasets have their own licensing and privacy responsibilities.

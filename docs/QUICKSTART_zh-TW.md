@@ -1,25 +1,19 @@
-# ISL P1 繁體中文快速入門
+# ISL 對外版快速開始（P2）
 
-這是一套可以離線執行的基本光譜數值語言。它不是 AI 語義自動理解模型。
+ISL 是獨立的低門檻光譜數值語言研究原型，採用 MIT 授權。安裝 Python 3.10+，不需要連線或其他模型，就能執行 `.isl 0.1` 的基本運算。
 
-## 一分鐘測試
-
-```powershell
-python -m spectral_public.cli check examples/hello.isl
+```bash
 python -m spectral_public.cli run examples/hello.isl
 python -m unittest discover -s tests -v
 ```
 
-語法包含 `axis`（宣告軸）、`record`（建立帶來源資訊的紀錄）、`let`（運算結果命名）、`print`（列印結果）。
+P2 額外提供「第三方編碼器」的標準交換資料：模型在外部依文字及語境提供各語義軸的有限區間，再用本工具驗證來源與數值界線。
 
-`record` 的 `text` 是原始自然語言敘述，`context` 是使用情境，`provenance` 用來解釋數值從何而來。初版例子採用**人工指定的合成數值**，不會從文字自行計算「真實的快樂程度」。
+```bash
+python -m spectral_public.cli adapter-check examples/p2_requests.json examples/p2_predictions.json
+python -m spectral_public.cli evaluate examples/p2_requests.json examples/p2_predictions.json examples/p2_heldout.json
+```
 
-可以使用的五種數值運算是 `intersect`（區間交集）、`union`（不偷補中間空隙的聯集）、`blend`（加權插值）、`cosine`（候選相似度）和 `filter`（確定性數值篩選）。
+測試夾具所有標註與輸出都是**虛構的示範數字**，不是 AI 真實學會語義的實驗證據。評估中的 `point_coverage` 僅表示外部指定的數值標註是否落在預測區間，**不是機率校準**。使用自己的模型前，請閱讀 [`P2_MODEL_ADAPTER.md`](P2_MODEL_ADAPTER.md)，並確保個資、資料授權、標註隔離與保留測試集均符合需求。
 
-若遇到非法區間、不同軸直接混算、缺少來源、未宣告軸、未知識別字，程式會拒絕執行並指出位置。
-
-## 對外版定位
-
-ISL 是獨立、漸進開發的語言，早期只解決有限維度的可計算光譜問題。後續可研究資料驅動編碼器、檢索與生成，但不能把尚未完成的能力說成已經實作。
-
-目前 GitHub 可公開閱讀；是否提供再利用授權，仍由作者另外決定。
+原有 `.isl` 語法仍為 `isl 0.1;`，P2 的 v0.2.0 只是增添獨立的交換與評估能力，不代表語法發生不相容變更。

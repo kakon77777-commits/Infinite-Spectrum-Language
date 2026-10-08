@@ -1,17 +1,18 @@
 # ISL — Infinite Spectrum Language
 
-**Public Research Preview P1 · v0.1.0**  
+**Public Research Preview P2 · v0.2.0**  
 **無限光譜量化語言 · 對外研究原型**  
 **Creator:** Neo.K · EveMissLab  
-**Conceptual source:** *無限光譜量化語言：從語義向量到可計算語言系統* (2026-03-10)
+**Conceptual source:** *無限光譜量化語言：從語義向量到可計算語言系統* (2026-03-10)  
+**License:** [MIT](LICENSE)
 
-ISL is a small, independent, deliberately **bounded language prototype** for explicitly declared numerical semantic spectra. It demonstrates names for dimensions, context/provenance-carrying records, closed `[0,1]` intervals, numerical operations and deterministic queries.
+ISL is an independent, deliberately **bounded language prototype** for explicitly declared numerical semantic spectra. It has a tiny `.isl 0.1` interpreter and a separate optional model-neutral P2 encoding/evaluation interface.
 
-The initial values are **provided by the author of each example**, not discovered from text. ISL P1 is not a language model, universal reasoning engine, neural semantic codec, theorem prover, or full implementation of the five-layer research vision.
+The numbers in the language examples are **hand supplied**. P2 can accept predictions from third-party models but does **not** include a trained model. ISL is not a universal semantic reasoner, a mathematical prover, a calibrated uncertainty engine, or a completed implementation of its motivating five-layer research vision.
 
-## Quick start
+## Run the language (P1 compatibility)
 
-No external runtime dependencies; Python 3.10+.
+No required runtime dependencies beyond Python 3.10+.
 
 ```bash
 python -m spectral_public.cli check examples/hello.isl
@@ -20,9 +21,21 @@ python -m spectral_public.cli run examples/disjoint.isl
 python -m unittest discover -s tests -v
 ```
 
-After installation with `python -m pip install .`, the same commands are available as `isl check ...` and `isl run ...`.
+After `python -m pip install .`, `isl` is also installed as the CLI executable.
 
-## The first ISL program
+## Run the offline model-adapter pipeline (P2)
+
+```bash
+python -m spectral_public.cli adapter-check examples/p2_requests.json examples/p2_predictions.json
+python -m spectral_public.cli evaluate examples/p2_requests.json examples/p2_predictions.json examples/p2_heldout.json
+python -m spectral_public.cli adapter-template examples/p2_requests.json --out my_predictions.json --encoder-name my-local-encoder --encoder-version 0.1 --run-id run-001
+```
+
+The P2 bundle contracts include context binding, exact request hashes, encoder provenance, strict axes, range validation, explicit abstention and held-out point-score diagnostics. The example inputs, outputs and labels are **invented demonstration fixtures**, not an empirical benchmark or independently annotated evidence.
+
+Read the [P2 specification and limitations](docs/P2_MODEL_ADAPTER.md) before attaching a real encoder. An encoder can be written in any language by producing the documented versioned JSON; `spectral_public.adapter.SpectrumEncoder` also provides an optional Python Protocol. No automatic network, telemetry, shell or model execution is introduced.
+
+## Your first ISL program
 
 ```isl
 isl 0.1;
@@ -52,29 +65,28 @@ print mixed;
 print selected;
 ```
 
-Operations in v0.1: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic** only), and `filter` (exact numerical predicate). `union` preserves disjoint intervals; it never silently fills the gap between them.
+Operations: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic**), `filter` (exact numerical predicate). Disjoint union is a two-interval set, not an invented convex hull.
 
-`run` emits UTF-8 JSON describing printed values. All operations are pure local computations; there are no remote calls, AI services, filesystem writes, or executable-code evaluation inside ISL source.
+## Design boundaries
 
-## Language design / 語言設計
-
-- **Finite execution, extensible vocabulary.** Each module declares a finite set of named axes. Later modules can use different sets. The word *Infinite* describes an open-ended research direction, not infinite physical dimensions in one computer.
-- **Context & provenance are mandatory.** Numeric scores cannot be treated as objective truth without an external measurement or annotation protocol.
-- **No automatic inference.** Similarity ranks numerical candidates, not logical entailments; a numerical interval does not by itself imply probability, confidence, or ambiguity.
-- **A small, honest public version.** The package is self-contained; it does not require access to any private engine or unpublished source.
+- **Finite execution, extensible vocabulary.** Each actual example/module has finitely many named axes; the name *Infinite* describes the open-ended research direction, not literal infinite machine storage.
+- **Context + provenance required.** Comparisons across models/axis versions require declared mappings, not a guessed universal coordinate system.
+- **Numerical ≠ logical.** An interval's width cannot be silently interpreted as probability, confidence or truth. P2 `point_coverage` is a diagnostic, not verified probability calibration.
+- **Independent public build.** All commands run offline. No proprietary system or unpublished code is required.
 
 ## Repository map
 
-- [`spec/ISL_P1_LANGUAGE_SPEC.md`](spec/ISL_P1_LANGUAGE_SPEC.md): v0.1 grammar, semantics and error rules.
-- [`spectral_public/`](spectral_public/): Python reference interpreter and P0 interval operations.
-- [`examples/`](examples/): synthetic hand-annotated examples and original P0 JSON records.
-- [`conformance/`](conformance/): positive JSON output fixtures and rejected invalid programs.
-- [`tests/`](tests/): pure offline regression tests.
-- [`docs/RELEASE_SCOPE.md`](docs/RELEASE_SCOPE.md): public capabilities and excluded internals.
-- [`ROADMAP.md`](ROADMAP.md): next experimental milestones.
+- [`spec/ISL_P1_LANGUAGE_SPEC.md`](spec/ISL_P1_LANGUAGE_SPEC.md) — frozen `.isl 0.1` language reference.
+- [`docs/P2_MODEL_ADAPTER.md`](docs/P2_MODEL_ADAPTER.md) — optional JSON adapter contract, evaluation metrics and scientific caveats.
+- [`spectral_public/`](spectral_public/) — Python reference language, interval core, adapter and evaluation code.
+- [`examples/`](examples/) — `.isl` modules, JSON records and synthetic P2 fixtures.
+- [`conformance/`](conformance/) — original P1 language positive and invalid corpora.
+- [`tests/`](tests/) — zero-network unit tests.
+- [`docs/RELEASE_SCOPE.md`](docs/RELEASE_SCOPE.md) — scope and non-goals.
+- [`ROADMAP.md`](ROADMAP.md) — planned experiments.
 
-## Licensing and public access
+## License
 
-This repository is **publicly readable**, but **does not yet grant an open-source license**. The owner has not finalized reuse, distribution, patent or contribution terms. See [`LICENSE_DECISION_PENDING.md`](LICENSE_DECISION_PENDING.md). Public visibility is not permission to redistribute proprietary implementations.
+MIT License, Copyright (c) 2026 Neo.K and EveMissLab. See [LICENSE](LICENSE). The grant covers the files released in **this repository**; it does not grant rights to any separate work or technology outside this repository.
 
-This project is an independent research preview. Nothing in it claims compatibility with any separate system or automatic access to non-public technology.
+The P2 interface is a research boundary, not a certification of model accuracy, semantic truth or compatibility with any other system.

@@ -1,0 +1,71 @@
+{
+  "profile": "isl-evaluation/0.2",
+  "split": "heldout",
+  "annotation_protocol": "SYNTHETIC DEMO; labels not independently annotated or validated",
+  "labels": [
+    {
+      "item_id": "demo01",
+      "values": {
+        "joy": 0.2,
+        "calm": 0.3
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo02",
+      "values": {
+        "joy": 0.68,
+        "calm": 0.58
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo03",
+      "values": {
+        "joy": 0.91,
+        "calm": 0.7
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo04",
+      "values": {
+        "joy": 0.17,
+        "calm": 0.26
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo05",
+      "values": {
+        "joy": 0.48,
+        "calm": 0.88
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo06",
+      "values": {
+        "joy": 0.55,
+        "calm": 0.73
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo07",
+      "values": {
+        "joy": 0.33,
+        "calm": 0.57
+      },
+      "annotation_source": "invented-demonstration-value"
+    },
+    {
+      "item_id": "demo08",
+      "values": {
+        "joy": 0.71,
+        "calm": 0.79
+      },
+      "annotation_source": "invented-demonstration-value"
+    }
+  ]
+}

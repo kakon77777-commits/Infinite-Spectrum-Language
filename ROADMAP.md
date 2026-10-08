@@ -2,37 +2,36 @@
 
 ## P0 — bounded numerical spectrum core (implemented)
 
-- [x] Explicit names and intervals bounded to `[0,1]`.
-- [x] Intersection, true disjoint union, numeric blend.
-- [x] Midpoint-cosine candidate similarity and exact range filter.
-- [x] JSON validation and synthetic fixtures.
+- [x] Named finite axes, intervals `[0,1]`, intersection, exact union and numeric blend.
+- [x] Midpoint-cosine candidate ranking and exact axis filter.
+- [x] JSON fixtures and validators.
 
-## P1 — executable language kernel (current)
+## P1 — executable language kernel (implemented, syntax version 0.1)
 
-- [x] Small versioned grammar with a parser and source-position diagnostics.
-- [x] Axis, record, metadata, operation binding, and output statements.
-- [x] Strict runtime checks and deterministic reference evaluation.
-- [x] Positive and rejected-invalid conformance corpora; offline regression tests.
-- [x] Separate mathematical interval semantics from uncertainty or probability.
-- [ ] Second independent implementation / external conformance validation.
-- [ ] Owner-selected distribution and code license.
+- [x] Parser with source-position diagnostics, axes, records, metadata, bindings and output statements.
+- [x] Deterministic reference evaluation with no network calls and negative tests.
+- [x] Context/provenance, explicit mathematical interval semantics and P1 conformance fixtures.
+- [x] MIT license authorized by owner and added to repository.
+- [ ] Second independent language implementation and external conformance verification.
 
-## P2 — optional model adapter (future)
+## P2 — optional model-neutral adapter and diagnostics (v0.2.0)
 
-- [ ] Model-neutral encoding interface with provenance / model version.
-- [ ] Evaluate against held-out, independently annotated examples.
-- [ ] Track context shift, uncertainty calibration, and failure modes.
+- [x] Explicit request / prediction interchange profiles and external encoder Protocol.
+- [x] Digest binds text, context, context group and axis order; versioned encoder provenance.
+- [x] Deterministic offline fixture replay and non-inventing abstention templates.
+- [x] Fail-closed validation of IDs, ranges, axes, profile, digests and missing/extra records.
+- [x] Held-out point-score evaluation with context-group breakdown, interval coverage and abstentions.
+- [ ] Independently annotated held-out corpus, baseline comparisons and measured inter-annotator agreement.
+- [ ] Real trainable encoder experiment and empirically supported calibration/shift robustness.
 
 ## P3 — retrieval and controlled output (future)
 
-- [ ] ANN/LSH only as replaceable candidate-discovery accelerators.
-- [ ] Always recheck numerical predicates exactly.
-- [ ] Controlled generation evaluated separately from source restoration.
+- [ ] Optional candidate indexes (ANN / LSH) with exact numerical predicate rechecks.
+- [ ] Separate controlled generation quality from exact original-source recovery.
 
-## P4 — independent ecosystem validation (future)
+## P4 — external ecosystem validation (future)
 
-- [ ] Independent language implementation and measured conformance.
-- [ ] Community-maintained examples and error-case extension.
-- [ ] Standardize only behaviors backed by actual evidence.
+- [ ] Independent implementation, measured conformance, community examples and extensions.
+- [ ] Standardize only behaviors backed by real evidence.
 
-P0/P1 implementations are limited research tools. Their passing unit tests are not evidence that semantic representations are objective or that arbitrary linguistic reasoning has been solved.
+Passing unit tests verifies code contracts, not objectivity of semantic dimensions, probability calibration or general language understanding.

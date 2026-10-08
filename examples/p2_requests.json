@@ -1,0 +1,85 @@
+{
+  "profile": "isl-encode-requests/0.2",
+  "items": [
+    {
+      "item_id": "demo01",
+      "text": "今天好冷。",
+      "context": "在室外等公車，寒風很強",
+      "context_group": "daily",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo02",
+      "text": "今天好冷。",
+      "context": "在炎熱天氣開玩笑說很冷",
+      "context_group": "ironic",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo03",
+      "text": "這結果太棒了。",
+      "context": "朋友考試通過",
+      "context_group": "daily",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo04",
+      "text": "這結果太棒了。",
+      "context": "程式再次崩潰時反諷",
+      "context_group": "ironic",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo05",
+      "text": "系統保持穩定。",
+      "context": "監測伺服器運行",
+      "context_group": "technical",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo06",
+      "text": "系統保持穩定。",
+      "context": "小說角色描述情緒",
+      "context_group": "daily",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo07",
+      "text": "我需要一些時間。",
+      "context": "準備嚴肅報告",
+      "context_group": "technical",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    },
+    {
+      "item_id": "demo08",
+      "text": "我需要一些時間。",
+      "context": "週末想休息",
+      "context_group": "daily",
+      "axes": [
+        "joy",
+        "calm"
+      ]
+    }
+  ]
+}

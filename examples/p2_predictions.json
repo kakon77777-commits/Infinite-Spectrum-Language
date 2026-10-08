@@ -1,0 +1,173 @@
+{
+  "profile": "isl-encode-predictions/0.2",
+  "predictions": [
+    {
+      "item_id": "demo01",
+      "input_sha256": "ed3e02500c3430bc439f11660b2edab284788b0c373400ff7b832b9186dd151d",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.35,
+          "upper": 0.55
+        },
+        "joy": {
+          "lower": 0.35,
+          "upper": 0.55
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo02",
+      "input_sha256": "bcd874c3e565d5b26f2a4596d93aac79004239a8ab4771764bed136789cfb1aa",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.35,
+          "upper": 0.55
+        },
+        "joy": {
+          "lower": 0.35,
+          "upper": 0.55
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo03",
+      "input_sha256": "f56d61dbda3fedc5b7775ca30e6ad9adf93f4e3f995e3c47355a40c7dd8c8850",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.62,
+          "upper": 0.82
+        },
+        "joy": {
+          "lower": 0.72,
+          "upper": 0.92
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo04",
+      "input_sha256": "0ff88a082b8b8a352781412001f7e4c4e391a3668ac90c7fa642aa32ea2ac1f9",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.62,
+          "upper": 0.82
+        },
+        "joy": {
+          "lower": 0.72,
+          "upper": 0.92
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo05",
+      "input_sha256": "5b4aef61e1968e814aaaa8ec6712aef99818b69c2b8229e288d7036787cd6b34",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.65,
+          "upper": 0.85
+        },
+        "joy": {
+          "lower": 0.4,
+          "upper": 0.6
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo06",
+      "input_sha256": "91bef8033e6b22cf54f52cb11655e2e04c8da0fa1a7b44bba186f6a719d1dabc",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.65,
+          "upper": 0.85
+        },
+        "joy": {
+          "lower": 0.4,
+          "upper": 0.6
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo07",
+      "input_sha256": "1909d6184137a988b974b15319f3e1e2472a4de2b09246680d242698b7c92813",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.45,
+          "upper": 0.65
+        },
+        "joy": {
+          "lower": 0.35,
+          "upper": 0.55
+        }
+      },
+      "abstain_reason": null
+    },
+    {
+      "item_id": "demo08",
+      "input_sha256": "b3376fac35bafc31c3ee9bf3ef0afc4426662cd3d0aff6d825816472066583bc",
+      "encoder": {
+        "name": "synthetic-replay-baseline",
+        "version": "0.0-demo",
+        "run_id": "demo-run-001",
+        "source": "synthetic-offline-fixture"
+      },
+      "axes": {
+        "calm": {
+          "lower": 0.45,
+          "upper": 0.65
+        },
+        "joy": {
+          "lower": 0.35,
+          "upper": 0.55
+        }
+      },
+      "abstain_reason": null
+    }
+  ]
+}

@@ -24,10 +24,15 @@
 - [ ] Independently annotated held-out corpus, baseline comparisons and measured inter-annotator agreement.
 - [ ] Real trainable encoder experiment and empirically supported calibration/shift robustness.
 
-## P3 — retrieval and controlled output (future)
+## P3 — scoped retrieval and controlled output (v0.3.0)
 
-- [ ] Optional candidate indexes (ANN / LSH) with exact numerical predicate rechecks.
-- [ ] Separate controlled generation quality from exact original-source recovery.
+- [x] Scope-checked exhaustive numerical retrieval, recorded context and provenance.
+- [x] Optional rebuildable random-hyperplane LSH for candidate discovery; exact stored-number predicate recheck.
+- [x] Explicit approximate top-K recall audit against exhaustive ranking (synthetic fixtures only).
+- [x] Bounded deterministic templates that never claim model generation or original-file restoration.
+- [x] P2 predictions projected to source records with exact input binding and model provenance.
+- [ ] Empirical LSH trade-off benchmarks on externally annotated data.
+- [ ] Learned constrained generation with separate factuality/recovery evaluation.
 
 ## P4 — external ecosystem validation (future)
 

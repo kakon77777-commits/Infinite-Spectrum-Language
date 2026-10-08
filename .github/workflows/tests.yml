@@ -21,3 +21,9 @@ jobs:
         run: |
           python -m spectral_public.cli adapter-check examples/p2_requests.json examples/p2_predictions.json
           python -m spectral_public.cli evaluate examples/p2_requests.json examples/p2_predictions.json examples/p2_heldout.json
+      - name: P3 scoped retrieval and controlled output
+        run: |
+          python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json
+          python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json --index lsh
+          python -m spectral_public.cli retrieval-audit examples/p3_corpus.json examples/p3_query.json
+          python -m spectral_public.cli controlled-output examples/p3_corpus.json examples/p3_query.json --style compact

@@ -1,0 +1,19 @@
+{
+  "profile": "isl-retrieval-query/0.3",
+  "context": "synthetic-p3-demo/context-a",
+  "axes": [
+    "joy",
+    "calm"
+  ],
+  "reference_id": "anchor",
+  "predicates": [
+    {
+      "axis": "joy",
+      "endpoint": "lower",
+      "operator": ">=",
+      "threshold": 0.6
+    }
+  ],
+  "max_results": 3,
+  "exclude_reference": true
+}

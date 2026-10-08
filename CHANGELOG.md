@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 (2026-10-08) — P3 Scoped Retrieval and Controlled Output
+
+- Added context-/axis-scoped exact numerical retrieval and replaceable `CandidateProvider` interface.
+- Added optional seeded random-hyperplane LSH index and exhaustive top-K recall comparison.
+- Recheck source record numerical predicates after candidate retrieval; no ANN/LSH truth claims.
+- Added two bounded deterministic text templates with source attribution and digest checks; no original file recovery claim.
+- Added explicit offline P2 prediction-to-corpus projection with provenance and abstention handling.
+- Added synthetic examples, specification, negative tests and CI smoke checks.
+- Preserved P1 `.isl 0.1` grammar, P2 adapter contracts and MIT license.
+
 ## 0.2.0 (2026-10-08) — P2 Model-Neutral Encoding Boundary
 
 - Adopted MIT license by owner decision; removed pending-license document.

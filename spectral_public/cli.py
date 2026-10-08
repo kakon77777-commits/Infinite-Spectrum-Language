@@ -10,6 +10,9 @@ from .language import ISLError, run_file
 from .adapter import (AdapterError, EncoderInfo, load_requests, load_predictions,
                       validate_pair, abstention_template)
 from .evaluation import load_heldout, evaluate
+from .retrieval import (RetrievalError, LSHConfig, load_query, retrieve,
+                        audit_lsh, controlled_output)
+from .p2_projection import project_predictions
 
 
 def load(path: str) -> list[SpectrumRecord]:
@@ -45,6 +48,22 @@ def main(argv: list[str] | None = None) -> int:
     assessment.add_argument("requests")
     assessment.add_argument("predictions")
     assessment.add_argument("labels")
+    for command in ("retrieve", "retrieval-audit", "controlled-output"):
+        p = sub.add_parser(command, help="P3 scoped numerical retrieval (offline)")
+        p.add_argument("corpus", help="P1 spectrum-public/0.1 record list")
+        p.add_argument("query", help="isl-retrieval-query/0.3")
+        if command != "retrieval-audit":
+            p.add_argument("--index", choices=("exact", "lsh"), default="exact")
+        if command == "controlled-output":
+            p.add_argument("--style", choices=("evidence", "compact"), default="evidence")
+        p.add_argument("--tables", type=int, default=3)
+        p.add_argument("--bits", type=int, default=8)
+        p.add_argument("--radius", type=int, default=1)
+        p.add_argument("--seed", type=int, default=17)
+    project = sub.add_parser("p2-corpus", help="materialize vetted P2 external predictions as P1 records")
+    project.add_argument("requests")
+    project.add_argument("predictions")
+    project.add_argument("--out", required=True, help="new file only; never overwrite")
     args = parser.parse_args(argv)
     try:
         if args.command == "adapter-template":
@@ -70,6 +89,24 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 annotation_protocol, labels = load_heldout(args.labels)
                 result = evaluate(requests, predictions, labels, annotation_protocol)
+        elif args.command == "p2-corpus":
+            requests = load_requests(args.requests)
+            predictions = load_predictions(args.predictions)
+            projected, result = project_predictions(requests, predictions)
+            with Path(args.out).open("x", encoding="utf-8") as handle:
+                json.dump(projected, handle, ensure_ascii=False, indent=2, allow_nan=False)
+                handle.write("\n")
+            result["path"] = str(args.out)
+        elif args.command in ("retrieve", "retrieval-audit", "controlled-output"):
+            records = load(args.corpus)
+            query = load_query(args.query)
+            config = LSHConfig(args.tables, args.bits, args.radius, args.seed)
+            if args.command == "retrieval-audit":
+                result = audit_lsh(records, query, config)
+            else:
+                result = retrieve(records, query, method=args.index, lsh=config)
+                if args.command == "controlled-output":
+                    result = controlled_output(result, style=args.style)
         elif args.command in ("run", "check"):
             result = run_file(args.path)
             if args.command == "check":
@@ -96,9 +133,9 @@ def main(argv: list[str] | None = None) -> int:
                     "blend_half": blend(x, y, 0.5).to_json(),
                     "cosine_midpoint_heuristic": midpoint_cosine(a, b),
                 }
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+        print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False))
         return 0
-    except (ISLError, SpectrumError, AdapterError, ValueError, UnicodeError, OSError, json.JSONDecodeError) as exc:
+    except (ISLError, SpectrumError, AdapterError, RetrievalError, ValueError, UnicodeError, OSError, json.JSONDecodeError) as exc:
         print(f"ISL error: {exc}", file=sys.stderr)
         return 2
 

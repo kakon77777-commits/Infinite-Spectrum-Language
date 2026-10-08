@@ -1,0 +1,6 @@
+{
+  "query": "examples/p3_query.json",
+  "corpus": "examples/p3_corpus.json",
+  "method": "exact",
+  "expected_hit_ids": ["near", "middle", "text-data"]
+}

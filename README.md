@@ -1,14 +1,14 @@
 # ISL — Infinite Spectrum Language
 
-**Public Research Preview P2 · v0.2.0**  
+**Public Research Preview P3 · v0.3.0**  
 **無限光譜量化語言 · 對外研究原型**  
 **Creator:** Neo.K · EveMissLab  
 **Conceptual source:** *無限光譜量化語言：從語義向量到可計算語言系統* (2026-03-10)  
 **License:** [MIT](LICENSE)
 
-ISL is an independent, deliberately **bounded language prototype** for explicitly declared numerical semantic spectra. It has a tiny `.isl 0.1` interpreter and a separate optional model-neutral P2 encoding/evaluation interface.
+ISL is an independent, deliberately **bounded language prototype** for explicitly declared numerical semantic spectra. It has a tiny `.isl 0.1` interpreter, an optional model-neutral P2 encoding/evaluation interface, and P3 numerical retrieval with optional approximate candidate discovery and deterministic output templates.
 
-The numbers in the language examples are **hand supplied**. P2 can accept predictions from third-party models but does **not** include a trained model. ISL is not a universal semantic reasoner, a mathematical prover, a calibrated uncertainty engine, or a completed implementation of its motivating five-layer research vision.
+The numbers in the language examples are **hand supplied**. P2 can accept predictions from third-party models but does **not** include a trained model. P3 accepts only explicitly scoped numerical records; similarity is a heuristic, not logical inference. ISL is not a universal semantic reasoner, a mathematical prover, a calibrated uncertainty engine, or a completed implementation of its motivating five-layer research vision.
 
 ## Run the language (P1 compatibility)
 
@@ -34,6 +34,27 @@ python -m spectral_public.cli adapter-template examples/p2_requests.json --out m
 The P2 bundle contracts include context binding, exact request hashes, encoder provenance, strict axes, range validation, explicit abstention and held-out point-score diagnostics. The example inputs, outputs and labels are **invented demonstration fixtures**, not an empirical benchmark or independently annotated evidence.
 
 Read the [P2 specification and limitations](docs/P2_MODEL_ADAPTER.md) before attaching a real encoder. An encoder can be written in any language by producing the documented versioned JSON; `spectral_public.adapter.SpectrumEncoder` also provides an optional Python Protocol. No automatic network, telemetry, shell or model execution is introduced.
+
+## Retrieve declared numeric spectra (P3)
+
+```bash
+# Deterministic exact numeric baseline
+python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json
+
+# Optional LSH candidate narrowing; all final predicates rechecked on source rows
+python -m spectral_public.cli retrieve examples/p3_corpus.json examples/p3_query.json --index lsh
+
+# Audit numerical top-K recall of LSH against exact scan
+python -m spectral_public.cli retrieval-audit examples/p3_corpus.json examples/p3_query.json
+
+# Deterministic, attributed templates (not LLM text generation)
+python -m spectral_public.cli controlled-output examples/p3_corpus.json examples/p3_query.json --style evidence
+
+# Explicit projection of external P2 predictions, without loading a model
+python -m spectral_public.cli p2-corpus examples/p2_requests.json examples/p2_predictions.json --out projected.json
+```
+
+See [P3 retrieval and controlled-output contracts](docs/P3_RETRIEVAL_AND_OUTPUT.md) and [P3 experimental JSON profiles](spec/ISL_P3_JSON_PROFILES.md). P3 examples use **invented numeric annotations**; test pass rates and LSH recall do not demonstrate natural-language reasoning accuracy. The P3 reference implementation is offline and uses only Python's standard library.
 
 ## Your first ISL program
 
@@ -73,12 +94,16 @@ Operations: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic**), `f
 - **Context + provenance required.** Comparisons across models/axis versions require declared mappings, not a guessed universal coordinate system.
 - **Numerical ≠ logical.** An interval's width cannot be silently interpreted as probability, confidence or truth. P2 `point_coverage` is a diagnostic, not verified probability calibration.
 - **Independent public build.** All commands run offline. No proprietary system or unpublished code is required.
+- **Retrieval is not proof.** P3 requires exact axis/context scope, checks predicates on the original numeric rows and never treats approximation as a certified conclusion.
+- **Templates are not original-source recovery.** Controlled-output reports preserve source references but cannot recreate arbitrary original files.
 
 ## Repository map
 
 - [`spec/ISL_P1_LANGUAGE_SPEC.md`](spec/ISL_P1_LANGUAGE_SPEC.md) — frozen `.isl 0.1` language reference.
 - [`docs/P2_MODEL_ADAPTER.md`](docs/P2_MODEL_ADAPTER.md) — optional JSON adapter contract, evaluation metrics and scientific caveats.
-- [`spectral_public/`](spectral_public/) — Python reference language, interval core, adapter and evaluation code.
+- [`spec/ISL_P3_JSON_PROFILES.md`](spec/ISL_P3_JSON_PROFILES.md) — experimental retrieval/audit/output data profiles.
+- [`docs/P3_RETRIEVAL_AND_OUTPUT.md`](docs/P3_RETRIEVAL_AND_OUTPUT.md) — retrieval scope, LSH limits and evidence contracts.
+- [`spectral_public/`](spectral_public/) — Python reference language, intervals, adapter, evaluation, retrieval and controlled output.
 - [`examples/`](examples/) — `.isl` modules, JSON records and synthetic P2 fixtures.
 - [`conformance/`](conformance/) — original P1 language positive and invalid corpora.
 - [`tests/`](tests/) — zero-network unit tests.
@@ -89,4 +114,4 @@ Operations: `intersect`, `union`, `blend`, `cosine` (midpoint **heuristic**), `f
 
 MIT License, Copyright (c) 2026 Neo.K and EveMissLab. See [LICENSE](LICENSE). The grant covers the files released in **this repository**; it does not grant rights to any separate work or technology outside this repository.
 
-The P2 interface is a research boundary, not a certification of model accuracy, semantic truth or compatibility with any other system.
+The P2/P3 interfaces are research boundaries, not certifications of model accuracy, semantic truth, semantic equivalence, exact source restoration or compatibility with any other system.

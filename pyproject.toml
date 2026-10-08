@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infinite-spectrum-language"
+version = "0.1.0"
+description = "Bounded, model-neutral public prototype of an interval spectrum language"
+requires-python = ">=3.10"
+authors = [{name = "Neo.K / EveMissLab"}]
+
+[project.scripts]
+isl = "spectral_public.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["spectral_public*"]

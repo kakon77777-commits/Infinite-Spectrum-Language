@@ -1,0 +1,8 @@
+[
+  {
+    "profile":"spectrum-public/0.1", "record_id":"toy-001", "text":"我今天很開心。", "context":"synthetic demonstration; no real measurements", "provenance":"hand-authored toy coordinates; not inferred by AI", "axes":{"joy":{"lower":0.75,"upper":0.9},"calm":{"lower":0.45,"upper":0.65}}
+  },
+  {
+    "profile":"spectrum-public/0.1", "record_id":"toy-002", "text":"我心情不錯。", "context":"synthetic demonstration; no real measurements", "provenance":"hand-authored toy coordinates; not inferred by AI", "axes":{"joy":{"lower":0.6,"upper":0.8},"calm":{"lower":0.5,"upper":0.7}}
+  }
+]

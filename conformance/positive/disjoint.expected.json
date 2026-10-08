@@ -1,0 +1,28 @@
+{
+  "profile": "isl-language/0.1",
+  "axes": [
+    "intensity"
+  ],
+  "records": 2,
+  "outputs": [
+    {
+      "name": "overlap",
+      "type": "interval-or-empty",
+      "value": null
+    },
+    {
+      "name": "regions",
+      "type": "interval-set",
+      "value": [
+        {
+          "lower": 0.1,
+          "upper": 0.2
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9
+        }
+      ]
+    }
+  ]
+}

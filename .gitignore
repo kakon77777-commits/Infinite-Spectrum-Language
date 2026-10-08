@@ -6,3 +6,22 @@ dist/
 build/
 .venv/
 *.zip
+
+# Local credentials, private data and developer state (not a security boundary)
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*.sqlite
+*.sqlite3
+.npmrc
+.pypirc
+.codex/
+.eveglyph/
+.secrets/
+secrets/
+private-data/
+local-data/

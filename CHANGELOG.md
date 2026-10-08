@@ -1,5 +1,12 @@
 # Changelog
 
+## Documentation update — spectrum-aware natural-language research and public privacy guard (2026-10-08)
+
+- Clarified the proposed use of semantic spectra as **auxiliary** information for natural-language training, controlled expression and independent naturalness evaluation.
+- Added a research plan with baseline, ablation, blinded human ratings, semantic-fidelity and privacy requirements. **No new encoder/model/generator, no improvement claim.**
+- Added public data/privacy handling guidance, conservative accidental-disclosure checks and GitHub CI scanning for obvious credentials/paths.
+- Preserved version `0.5.0`, `.isl 0.1`, public JSON contracts, and MIT licensing: **documentation/security hygiene only**.
+
 ## v0.5.0 — P5 external conformance kit (2026-10-08)
 
 - Added independent black-box CLI gate for third-party ISL implementations, built entirely from Python standard-library code.

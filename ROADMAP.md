@@ -12,7 +12,7 @@
 - [x] Deterministic reference evaluation with no network calls and negative tests.
 - [x] Context/provenance, explicit mathematical interval semantics and P1 conformance fixtures.
 - [x] MIT license authorized by owner and added to repository.
-- [ ] Second independent language implementation and external conformance verification.
+- [x] Second **host-language** implementation (P4); genuinely independent third-party validation remains open.
 
 ## P2 — optional model-neutral adapter and diagnostics (v0.2.0)
 
@@ -54,5 +54,16 @@
 - [x] Runtime-neutral submission template, external implementer guide and public divergence issue template.
 - [ ] **Real third-party** authorship and independently reviewed execution receipts.
 - [ ] Validation on externally annotated data with measured cross-implementation behavior beyond bounded synthetic fixtures.
+
+## Proposed research track — spectrum-aware natural-language learning and evaluation (not implemented)
+
+- [ ] Define annotation protocols for context-dependent style, pragmatic intent, and semantic fidelity; avoid claiming universal axes.
+- [ ] Establish lawful, independently annotated, privacy-reviewed corpora and held-out splits by speaker/source/domain; measure annotator disagreement.
+- [ ] Train or attach an optional **external** encoder via the P2 interchange without changing the stable `.isl 0.1` language.
+- [ ] Compare matched-budget baselines (no ISL / auxiliary spectrum supervision / optional spectrum-conditioned control), including ablations and negative controls.
+- [ ] Conduct blinded human naturalness and contextual-appropriateness evaluation; separately measure meaning preservation, factuality, latency and cost.
+- [ ] Publish reproducible results and failures before describing the approach as an improvement.
+
+This is a **proposed evaluation program**, not a P6 release commitment or a claim that language-model training is included in P5. See [`docs/NATURAL_LANGUAGE_RESEARCH.md`](docs/NATURAL_LANGUAGE_RESEARCH.md).
 
 Passing unit tests verifies code contracts, not objectivity of semantic dimensions, probability calibration or general language understanding.

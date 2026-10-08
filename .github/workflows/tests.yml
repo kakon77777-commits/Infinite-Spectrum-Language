@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Public-tree privacy and credential guard
+        run: python scripts/check_public_surface.py
       - name: Unit and conformance tests
         run: python -m unittest discover -s tests -v
       - name: P1 language example

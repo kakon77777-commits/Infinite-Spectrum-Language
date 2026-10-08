@@ -10,6 +10,14 @@ ISL is an independent, deliberately **bounded language prototype** for explicitl
 
 The numbers in the language examples are **hand supplied**. P2 can accept predictions from third-party models but does **not** include a trained model. P3 accepts only explicitly scoped numerical records; similarity is a heuristic, not logical inference. ISL is not a universal semantic reasoner, a mathematical prover, a calibrated uncertainty engine, or a completed implementation of its motivating five-layer research vision.
 
+## Why ISL? Researching more natural language with semantic spectra
+
+ISL is designed as a **companion to language models**, not a replacement for them. Beyond numeric retrieval, one proposed research direction is to use **context-conditioned, explicitly defined semantic spectra** as auxiliary signals for natural-language training, controlled expression, and evaluation. For example, a study could examine directness, register, politeness, emotional intensity, or ambiguity handling **without assuming that any fixed set of axes is universal**.
+
+The intended question is whether spectrum-informed supervision or controls can improve **human-rated naturalness and situational appropriateness while preserving the speaker's intended meaning**, compared with the same underlying model trained or prompted without ISL signals. The answer is **not yet known**. A valid experiment requires comparable baselines, independent human judgment, held-out speakers/domains, ablations, and explicit privacy and dataset provenance controls.
+
+**Implemented now:** bounded `.isl` numeric operations (P1), a model-neutral *external* encoder interchange and synthetic evaluation tools (P2), numeric retrieval and deterministic templates (P3), and conformance tooling (P4–P5). **Not implemented:** a learned semantic encoder, a trained ISL-guided language model, spectrum-conditioned natural-language generation, or an independently verified improvement in naturalness. See [the natural-language research proposal](docs/NATURAL_LANGUAGE_RESEARCH.md) and [data/privacy guidance](docs/DATA_PRIVACY_GUIDANCE.md).
+
 ## Run the language (P1 compatibility)
 
 No required runtime dependencies beyond Python 3.10+.
